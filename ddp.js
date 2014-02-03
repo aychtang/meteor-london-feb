@@ -1,15 +1,7 @@
 var ws = require('faye-websocket');
+var logger =require('./log');
 var _ = require('underscore');
 var socket;
-
-// Logging methods.
-var log = function(msg) {
-	console.log(msg);
-};
-
-var info = function(msg) {
-	log('INFO: ' + msg);
-};
 
 // DDP client.
 var registerCallbacks = function(socket) {
@@ -23,7 +15,7 @@ var registerCallbacks = function(socket) {
 			});
 		},
 		'message' : function(e) {
-			info(e.data);
+			logger.info(e.data);
 		}
 	};
 
@@ -49,7 +41,14 @@ var start = function(url) {
 
 };
 
+// Attempts to call a method on the server.
+var call = function(fnName, params) {
+	logger.warn('not yet implemented call.')
+};
+
+// write an onConnect fn that runs cb.
 module.exports = {
 	start: start,
-	send: send
+	send: send,
+	call: call
 };
