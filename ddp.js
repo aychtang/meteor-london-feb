@@ -4,22 +4,14 @@ var _ = require('underscore');
 var nextId = 0;
 var socket;
 
-// DDP client.
-
 // Register handlers for each message type sent from DDP server.
 var registerCallbacks = function(socket) {
-
+	logger.warn('Not yet implemented connection');
 	var events = {
-
 		// Handle an 'open' event, connect to server.
 		// Should send a 'connect' message, with version and support [versions].
-		'open' : function(e) {
 
-			// Establish a DDP connection.
-
-		}
-
-		// Handle 'message' events.
+		// Handle 'message' events. Check e.data.
 	};
 
 	_.each(events, function(fn, ev) {
@@ -30,9 +22,7 @@ var registerCallbacks = function(socket) {
 
 // Expects message object and sends to DDP server.
 var send = function(socket, message) {
-
 	socket.send(JSON.stringify(message));
-
 };
 
 // Attempts to connect to DDP server, and registers callbacks to handle

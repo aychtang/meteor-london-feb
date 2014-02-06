@@ -14,13 +14,11 @@ var mod = {
 };
 
 board.on('ready', function() {
-
 	button = mod.button = new five.Button(8);
 
 	if (callback) {
 		callback(button);
 	}
-
 });
 
 module.exports = mod;
