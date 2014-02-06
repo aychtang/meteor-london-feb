@@ -1,10 +1,11 @@
-var ddp = require('./ddp');
-var c = require('./board');
+// var ddp = require('./ddp');
+// var slideContent = require('./slide');
 
-c.registerCallback(function(bt) {
-	bt.on('down', function(e) {
-		console.log('down');
+var circuit = require('./board');
+
+circuit.ready(function(button) {
+	button.on('down', function(e) {
+		console.log('button pressed');
 	});
 });
 
-ddp.start('ws://localhost:3000/websocket');
