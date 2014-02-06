@@ -6,12 +6,22 @@ var socket;
 
 // Register handlers for each message type sent from DDP server.
 var registerCallbacks = function(socket) {
-	logger.warn('Not yet implemented connection');
 	var events = {
 		// Handle an 'open' event, connect to server.
 		// Should send a 'connect' message, with version and support [versions].
+		'open': function(e) {
+			send(socket, {
+			'msg': 'connect',
+			'version': 'pre1',
+			'support': ['pre1']
+		});
+		},
+		'message': function(e) {
+			logger.info(e.data);
+		}
 
 		// Handle 'message' events. Check e.data.
+
 	};
 
 	_.each(events, function(fn, ev) {
@@ -40,7 +50,13 @@ var start = function(url) {
 // Attempts to call a method on the server.
 // Should send a 'method' message, with params, fn name and id.
 var call = function(fnName, params, cb) {
-	logger.warn('not yet implemented call.');
+	// logger.warn('not yet implemented call.');
+	send(socket, {
+		'msg': 'method',
+		'method': fnName,
+		'params': params,
+		'id': (++nextId).toString()
+	});
 };
 
 module.exports = {
