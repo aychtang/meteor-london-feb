@@ -1,4 +1,3 @@
-
 Alerts = new Meteor.Collection("alerts")
 
 if (Meteor.isClient) {
@@ -24,12 +23,12 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.methods({
-    'cλz_-=@z@`€£$%&*)_+_++±_-`': function(a, b) {
-      var a = a || 'No params passed yet :(';
-      var b = b || 'yellow';
-      Alerts.insert({word: a, color: b});
-    }
-  });
+    		'cλz_-=@z@`€£$%&*)_+_++±_-`': function(a, b) {
+      			var a = a || 'No params passed yet :(';
+      			var b = b || 'yellow';
+      			Alerts.insert({word: a, color: b});
+		}
+  	});
 
   Alerts.remove({});
 }
