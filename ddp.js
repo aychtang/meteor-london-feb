@@ -11,17 +11,15 @@ var registerCallbacks = function(socket) {
 		// Should send a 'connect' message, with version and support [versions].
 		'open': function(e) {
 			send(socket, {
-			'msg': 'connect',
-			'version': 'pre1',
-			'support': ['pre1']
-		});
+				'msg': 'connect',
+				'version': 'pre1',
+				'support': ['pre1']
+			});
 		},
+		// Handle 'message' events. Check e.data.
 		'message': function(e) {
 			logger.info(e.data);
 		}
-
-		// Handle 'message' events. Check e.data.
-
 	};
 
 	_.each(events, function(fn, ev) {
